@@ -75,9 +75,26 @@ const loginUser = async (req=request, res=response)=>{
         });
     }
 }
+const renewToken = async( req, res = response) => {
 
+    const uid = req.uid;
+
+    // generar un nuevo JWT, generarJWT... uid...
+    const token = await generateJWT( uid );
+
+    // Obtener el usuario por el UID, Usuario.findById... 
+    const user = await User.findById( uid );
+
+    res.json({
+        ok: true,
+        user,
+        token
+    });
+
+}
 
 module.exports = {
     createUser,
-    loginUser
+    loginUser,
+    renewToken
 }

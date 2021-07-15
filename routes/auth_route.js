@@ -6,7 +6,7 @@
 const { Router, response } = require("express");
 const { check } = require("express-validator");
 
-const { createUser, loginUser } = require("../controller/auth_controller");
+const { createUser, loginUser, renewToken } = require("../controller/auth_controller");
 const { validatorFields } = require("../middlewares/validator-fields");
 const { validatorJWT } = require("../middlewares/validator-jwt");
 
@@ -21,11 +21,13 @@ route.post('/new', [
     validatorFields
 ],createUser);
 
-route.get('/login', [
+route.post('/login', [
     check('email','El correo no es invalido').isEmail(),
     check('password','El nombre es obligatorio').notEmpty(),
     validatorFields
-], loginUser)
+], loginUser);
+
+route.get('/renew', validatorJWT, renewToken );
 
 
 module.exports = route;

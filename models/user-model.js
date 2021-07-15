@@ -19,6 +19,7 @@ const UserSchema = Schema({
     online:{
         type:Boolean,
         require:false,
+        default:false
     },
     password:{
         type: String,
@@ -27,6 +28,8 @@ const UserSchema = Schema({
     img:{
         type:String,
         default:""
+
+        
     }
 })
 
