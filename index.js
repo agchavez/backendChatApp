@@ -1,16 +1,18 @@
 const express = require('express');
 const path = require('path');
-const { dbConnection } = require('./database/config_database');
 require('dotenv').config();
 
-// DB config
- dbConnection();
+// DB Config
+require('./database/config_database').dbConnection();
+
 
 // App de Express
 const app = express();
 
-//Lectura y parceo del body
-app.use(express.json());
+// Lectura y parseo del Body
+app.use( express.json() );
+
+
 // Node Server
 const server = require('http').createServer(app);
 module.exports.io = require('socket.io')(server);
@@ -24,10 +26,10 @@ const publicPath = path.resolve( __dirname, 'public' );
 app.use( express.static( publicPath ) );
 
 
-//Rutas
 
-app.use('/api/auth', require('./routes/auth_route'));
-app.use('/api/user', require('./routes/user_route'));
+// Mis Rutas
+app.use( '/api/auth', require('./routes/auth_route') );
+app.use( '/api/user', require('./routes/user_route') );
 
 
 

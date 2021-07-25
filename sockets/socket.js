@@ -7,12 +7,22 @@ const { io } = require('../index');
 io.on('connection', async(client) => {
     console.log('Cliente conectado');
     const token = client.handshake.headers['x-token'];
+    console.log("conectando");
     const [valid, uid] =  validateJWTSocket(token);
     if(!valid){return client.disconnect()}
+
     
-    console.log(uid);
+    
+    
     //Cliente autentcado 
     await userConected(uid);
+
+    client.join(uid);
+
+    client.on('menssage-personal',(payload)=>{
+        console.log(payload);
+        
+    })
     client.on('disconnect', () => {
          userDisconnected(uid);
         console.log('Cliente desconectado');
