@@ -4,7 +4,9 @@ services:
   app:
     image: chatapp
     environment:
-      MONGO_URL: "mongodb://db:27017/test"
+      PORT: 8080
+      JWT_KEY: "asjh@asd492pol|$%wrgr"
+      MONGO_URL: "mongodb+srv://agchavez:6Hn2NAD59ZFc3e9U@cluster0.pm4zp.mongodb.net/chatMessage"
     depends_on:
       - db
     ports:
