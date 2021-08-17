@@ -13,11 +13,13 @@ const createUser =async (req=request,res = response)=>{
         const existPhoneNumber = await User.findOne({phoneNumber});
 
         if(existEmeil){
+            console.log("existEmeil");
             return res.status(400).json({
                 ok:false,
                msg:"El email ya existe"
             })
         }else if(existPhoneNumber){
+            console.log("existPhoneNumber");
             return res.status(400).json({
                 ok:false,
                msg:"El numero ya existe"

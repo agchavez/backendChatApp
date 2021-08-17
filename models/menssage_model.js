@@ -2,27 +2,27 @@ const { Schema } = require("mongoose");
 
 
 
-const Menssage = Schema(
+const MenssageSchema = Schema(
     {
         msg:{
             type: String,
             require: [true, 'el mensaje es requierido'],
         },
-        date:{
-            type:Date,
-            default: Date.now()
-        },
-        transmitter:{
+        to:{
             type:Schema.Types.ObjectId,
             ref:'User',
             require:[true, 'El id del emisor es bligatorio']
         },
-        receiver:    {
+        from: {
             type:Schema.Types.ObjectId,
             ref:'User',
             require:[true, 'El id del receptor es bligatorio']
         }
 
 
+    }, {
+        timestamps: true
     }
-)
+);
+
+module.exports = model('Menssage', MenssageSchema)

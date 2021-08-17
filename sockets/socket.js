@@ -19,8 +19,9 @@ io.on('connection', async(client) => {
 
     client.join(uid);
 
-    client.on('menssage-personal',(payload)=>{
-        console.log(payload);
+    client.on('menssage-personal',(payload)=>{  
+        payload["date"] = new Date();
+        io.to(payload.to).emit('menssage-personal', payload);
         
     })
     client.on('disconnect', () => {
