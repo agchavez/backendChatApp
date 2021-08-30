@@ -13,6 +13,8 @@ const { validatorJWT } = require("../middlewares/validator-jwt");
 const route = Router();
 
 //post 
+// Este solo es un test nada mas 
+// Probando como es esto
 route.post('/new', [
     check('name','El nombre es obligatorio').notEmpty(),
     check('email','El correo no es invalido').isEmail(),
