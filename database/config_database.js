@@ -9,7 +9,7 @@ const dbConnection = async() =>{
             useUnifiedTopology:true,
             useCreateIndex:true
         });
-        console.log(`DB online ${process.env.DB_CNN}`);
+        console.log(`DB ${process.env.DB_CNN}`);
     } catch (error) {
         console.log(error);
         throw new Error('Error en la base de datos - comuniquese con el admin')
