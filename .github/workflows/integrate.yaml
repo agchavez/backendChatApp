@@ -1,7 +1,5 @@
 name: chat-backend
-env:
-  DB_CNN: ${{ secrets.DB_CNN }}
-  JWT_KEY: ${{ secrets.JWT_KEY }}
+
 on: 
   pull_request:
     branches: [master]
