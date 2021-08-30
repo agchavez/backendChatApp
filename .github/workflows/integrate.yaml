@@ -19,4 +19,3 @@ jobs:
           JWT_KEY: ${{ secrets.JWT_KEY }}
       - run: npm ci
       - run: npm test
-      - run: npm run start
