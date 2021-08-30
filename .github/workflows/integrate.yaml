@@ -1,4 +1,5 @@
 name: chat-backend
+
 on: 
   pull_request:
     branches: [master]
@@ -13,6 +14,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
+      - env:
+          DB_CNN: ${{ secrets.DB_CNN }}
+          JWT_KEY: ${{ secrets.JWT_KEY }}
       - run: npm ci
       - run: npm test
       - run: npm run start
