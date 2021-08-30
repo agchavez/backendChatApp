@@ -9,14 +9,13 @@ on:
 jobs:
   ci_to_master:
     runs-on: ubuntu-latest
+    env:
+      DB_CNN: ${{ secrets.DB_CNN }}
+      JWT_KEY: ${{ secrets.JWT_KEY }}
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-      - env:
-          DB_CNN: ${{ secrets.DB_CNN }}
-          JWT_KEY: ${{ secrets.JWT_KEY }}
       - run: npm ci
       - run: npm test
-      - run: npm run start
