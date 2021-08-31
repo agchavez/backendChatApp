@@ -8,5 +8,7 @@ const route =  Router();
 
 route.get('/', validatorJWT, getUser );
 
+route.get('/home', validatorJWT, getUser );
+
 
 module.exports = route;
