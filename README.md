@@ -1,7 +1,11 @@
 # Backend ChatApp
 
 ## Autenticacion
-<hr>
+Para correr el proyecto se requiere tener instalado docker en su computadora 
 
-- Iniciar seccion
-- Registrase
+## Ejecutando 
+```
+docker-compose up -d
+```
+
+servidor corriendo en el puerto 8080
