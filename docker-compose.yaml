@@ -18,7 +18,9 @@ services:
     environment:
       PORT: 8080
       JWT_KEY: "asjh564sdf5wefsdf4sf"
-      MONGO_URL: "mongodb://mongo:27017/chatapp"
+      DB_CNN: mongo://localhost:27017/test
+      DD_USER: root
+      DD_PASS: root
     ports:
       - "8080:8080"
     volumes:

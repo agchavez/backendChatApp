@@ -26,9 +26,26 @@ const cargarMenssage = async(payload)=>{
     }
 }
 
+const grabarMensaje = async( payload ) => {
+
+    try {
+        console.log(payload);
+        const mensaje = new Menssage( payload );
+        await mensaje.save();
+
+        return true;
+    } catch (error) {
+        return false;
+    }
+
+}
+
+
+
 
 module.exports = {
     userConected,
-    userDisconnected
-
+    userDisconnected,
+    cargarMenssage,
+    grabarMensaje
 }

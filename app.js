@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
+
 require('dotenv').config();
 
 // DB Config
 require('./database/config_database').dbConnection();
+
 
 
 // App de Express
@@ -30,6 +32,7 @@ app.use( express.static( publicPath ) );
 // Mis Rutas
 app.use( '/api/auth', require('./routes/auth_route') );
 app.use( '/api/user', require('./routes/user_route') );
+app.use( '/api/menssage', require('./routes/menssage_route') );
 
 
 module.exports = app

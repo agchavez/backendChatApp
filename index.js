@@ -1,7 +1,11 @@
 const app = require('./app.js')
 require('dotenv').config();
 
-app.listen( process.env.PORT, ( err ) => {
+const server = require('http').createServer(app);
+module.exports.io = require('socket.io')(server);
+require('./sockets/socket');
+
+server.listen( process.env.PORT, ( err ) => {
 
     if ( err ) throw new Error(err);
 
@@ -9,5 +13,4 @@ app.listen( process.env.PORT, ( err ) => {
 
 });
 
-module.exports = app;
 

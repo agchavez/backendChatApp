@@ -1,4 +1,4 @@
-const { userConected, userDisconnected } = require('../controller/socket_controller');
+const { userConected, userDisconnected, grabarMensaje } = require('../controller/socket_controller');
 const { validateJWTSocket } = require('../helpers/jwt');
 const { io } = require('../index');
 
@@ -19,8 +19,9 @@ io.on('connection', async(client) => {
 
     client.join(uid);
 
-    client.on('menssage-personal',(payload)=>{  
+    client.on('menssage-personal',async (payload)=>{  
         payload["date"] = new Date();
+        await grabarMensaje( payload );
         io.to(payload.to).emit('menssage-personal', payload);
         
     })

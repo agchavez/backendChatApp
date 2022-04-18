@@ -4,7 +4,7 @@ const { Schema, model } = require("mongoose");
 
 const MenssageSchema = Schema(
     {
-        msg:{
+        menssage:{
             type: String,
             require: [true, 'el mensaje es requierido'],
         },
